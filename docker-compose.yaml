@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  backendapp:
+    container_name: backendapp
+    image: frongfrank17/ctv-pr:v.deploy1amd64
+    restart: always
+    environment:
+      DB: DBCTC
+      URL_DB: 192.168.10.145
+      PORT_DB: 3333
+      DB_USER: "root"
+      DB_PASSWORD: "P@ssw0rd"
