@@ -9,3 +9,12 @@ cp ./democomctc /var/www/html/
 ```bash
 cd /home
 ```
+```bash
+ git clone https://github.com/frongfrank17/ctc-backend.git
+```
+```bash
+cd ./ctc-backend
+```
+```bash
+docker-compose up -d 
+```
