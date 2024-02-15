@@ -4,6 +4,8 @@ services:
     container_name: backendapp
     image: frongfrank17/ctv-pr:v.deploy1amd64
     restart: always
+    ports:
+      - "3000:3000"
     environment:
       DB: DBCTC
       URL_DB: 192.168.10.145
