@@ -2,7 +2,7 @@ version: '3.8'
 services:
   backendapp:
     container_name: backendapp
-    image: frongfrank17/ctv-pr:v.deploy1amd64
+    image: frongfrank17/ctv-pr:v.deploy2amd64
     restart: always
     ports:
       - "3000:3000"
