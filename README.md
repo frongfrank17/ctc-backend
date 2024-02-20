@@ -4,10 +4,13 @@
 git clone https://anuntawee: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@github.com/anuntawee/democomctc.git
 ```
 ```bash
-rm -r /var/www/html/democomctc
+cd /var/www/html/
 ```
 ```bash
-cp ./democomctc /var/www/html/
+mkdir /v2
+```
+```bash
+cp ./democomctc /var/www/html/v2/
 ```
 ```bash
 cd /home
