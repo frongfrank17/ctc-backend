@@ -1,0 +1,73 @@
+# DEPLOY FRONT-END
+
+ - ถ้ามี folder ctc-backend อยู่ 
+```bash
+cd ./ctc-backend
+```
+```bash
+git pull
+```
+ - ถ้ายังไม่มีให้ 
+```bash
+git clone https://github.com/frongfrank17/doc-deploy-php-nodejs.git
+```
+```bash
+cd ./doc-deploy-php-nodejs
+```
+### Deploy App Front-End
+```bash
+cd ./front-end
+```
+```bash
+docker compose up -d 
+```
+### Set Nginx
+
+```bash
+sudo vi /etc/nginx/sites-available/default
+```
+```bash
+server {
+  # Example PHP Nginx FPM config file
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  root /var/www/html;
+
+  # Add index.php to setup Nginx, PHP & PHP-FPM config
+  index index.php index.html index.htm ;
+
+  server_name _;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  # pass PHP scripts on Nginx to FastCGI (PHP-FPM) server
+ # location ~ \.php$ {
+   # include snippets/fastcgi-php.conf;
+
+    # Nginx php-fpm sock config:
+   # fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+    # Nginx php-cgi config :
+    # Nginx PHP fastcgi_pass 127.0.0.1:9000;
+  #}
+
+  # deny access to Apache .htaccess on Nginx with PHP, 
+  # if Apache and Nginx document roots concur
+  location ~ /\.ht {
+    deny all;
+  }
+  location / {
+      proxy_pass http://192.168.10.145:8001;
+  }
+} # End of PHP FPM Nginx config example
+```
+apply config
+```bash
+nginx -t 
+```
+![](./Screenshot%202567-02-27%20at%2000.28.09.png)
+restart nginx
+```bash
+sudo systemctl restart nginx
+```

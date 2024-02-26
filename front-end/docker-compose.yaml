@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  backendapp:
+    container_name: frontendapp
+    image: anuntawee/democom:ver0.0.1
+    restart: always
+    volumes:
+      - /mnt:/var/www/html/images
+    ports:
+      - "8001:80"
+
